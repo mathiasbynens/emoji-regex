@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - "0.10"
+script:
+  - "npm run build && npm test"
+after_script:
+  - "istanbul cover --verbose --dir coverage node_modules/.bin/_mocha scripts/generate-regex.js -- -u exports -R spec && cat coverage/lcov.info | coveralls; rm -rf coverage/lcov*"
