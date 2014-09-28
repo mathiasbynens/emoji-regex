@@ -1,7 +1,11 @@
 var assert = require('assert');
 var emojiRegex = require('../index.js');
+var emojiSymbols = require('unicode-tr51/symbols');
 
 describe('Emoji regex', function() {
+
+	// Start off with some hardcoded tests just to be safe. These are repeated by
+	// the scripted loop below.
 	it('matches expected code points', function() {
 
 		// U+1F198 SQUARED SOS
@@ -25,6 +29,14 @@ describe('Emoji regex', function() {
 			'\uD83C\uDDFA\uD83C\uDDF8'
 		);
 
+	});
+
+	// Test all emoji symbols as per the Unicode standard.
+	emojiSymbols.forEach(function(string) {
+		it('matches ' + string + ' as a single unit', function() {
+			assert(emojiRegex().test(string));
+			assert.deepEqual(string.match(emojiRegex())[0], string);
+		});
 	});
 
 });
