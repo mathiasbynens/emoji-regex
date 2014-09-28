@@ -25,10 +25,10 @@ emojiRegex().test('🆘');
 // → true
 emojiRegex().test('💩');
 // → true
-emojiRegex().test('🇾🇪');
+emojiRegex().test('🇺🇸');
 // → true
 
-var flag = '🇾🇪'; // flag for Yemen
+var flag = '🇺🇸'; // flag for United States
 flag.match(emojiRegex())[0] == flag;
 // → true
 ```
