@@ -43,6 +43,7 @@
 		"lodash.template": "^2.4.1",
 		"mocha": "^1.21.4",
 		"regenerate": "^1.0.0",
+		"regex-trie": "^1.0.3",
 		"string.fromcodepoint": "^0.2.1",
 		"unicode-tr51": "^1.0.0"
 	}

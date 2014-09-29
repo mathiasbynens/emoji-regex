@@ -1,32 +1,29 @@
 var fs = require('fs');
 var path = require('path');
+
 var jsesc = require('jsesc');
 var regenerate = require('regenerate');
+var regExpTrie = require('regex-trie');
 var template = require('lodash.template');
 require('string.fromcodepoint');
 
-var ROOT = path.resolve(__dirname, '..');
-
 var emojiCodePoints = require('unicode-tr51/code-points');
-var loneCodePoints = [];
-var multipleCodePoints = [];
+
+var multipleCodePointsTrie = regExpTrie();
+var loneCodePointsSet = regenerate();
 emojiCodePoints.forEach(function(value) {
 	if (Array.isArray(value)) {
-		multipleCodePoints.push(value);
+		var string = String.fromCodePoint.apply(null, value);
+		multipleCodePointsTrie.add(string);
 	} else {
-		loneCodePoints.push(value);
+		loneCodePointsSet.add(value);
 	}
 });
 
-var loneCodePointsPart = regenerate(loneCodePoints).toString();
+var loneCodePointsPart = loneCodePointsSet.toString();
+var multipleCodePointsPart = multipleCodePointsTrie.toString();
 
-// TODO: Optimize the output here using something like `frak` (which is still
-// not available on npm: https://github.com/noprompt/frak/issues/11).
-var multipleCodePointsPart = multipleCodePoints.map(function(codePoints) {
-	var string = String.fromCodePoint.apply(null, codePoints);
-	return jsesc(string);
-}).join('|');
-
+var ROOT = path.resolve(__dirname, '..');
 var sourceTemplate = fs.readFileSync(ROOT + '/templates/index.js');
 var result = template(sourceTemplate, {
 	'multipleCodePointsPart': multipleCodePointsPart,
