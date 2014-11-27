@@ -6,13 +6,13 @@ This repository contains a script that generates this regular expression based o
 
 ## Installation
 
-Via [npm](http://npmjs.org/):
+Via [npm](https://www.npmjs.org/):
 
 ```bash
 npm install emoji-regex
 ```
 
-In [Node.js](http://nodejs.org/):
+In [Node.js](https://nodejs.org/):
 
 ```js
 var emojiRegex = require('emoji-regex');
