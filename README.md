@@ -6,7 +6,7 @@ This repository contains a script that generates this regular expression based o
 
 ## Installation
 
-Via [npm](https://www.npmjs.org/):
+Via [npm](https://www.npmjs.com/):
 
 ```bash
 npm install emoji-regex

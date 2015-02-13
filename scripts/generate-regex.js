@@ -24,8 +24,8 @@ var loneCodePointsPart = loneCodePointsSet.toString();
 var multipleCodePointsPart = multipleCodePointsTrie.toString();
 
 var ROOT = path.resolve(__dirname, '..');
-var sourceTemplate = fs.readFileSync(ROOT + '/templates/index.js');
-var result = template(sourceTemplate, {
+var sourceTemplate = template(fs.readFileSync(ROOT + '/templates/index.js'));
+var result = sourceTemplate({
 	'multipleCodePointsPart': multipleCodePointsPart,
 	'loneCodePointsPart': loneCodePointsPart
 });

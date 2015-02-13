@@ -40,11 +40,11 @@
 		"coveralls": "^2.11.1",
 		"istanbul": "^0.3.5",
 		"jsesc": "^0.5.0",
-		"lodash.template": "^2.4.1",
-		"mocha": "^2.0.1",
-		"regenerate": "^1.0.1",
+		"lodash.template": "^3.2.0",
+		"mocha": "^2.1.0",
+		"regenerate": "^1.2.1",
 		"regex-trie": "^1.0.4",
 		"string.fromcodepoint": "^0.2.1",
-		"unicode-tr51": "^4.0.0"
+		"unicode-tr51": "^5.0.0"
 	}
 }
