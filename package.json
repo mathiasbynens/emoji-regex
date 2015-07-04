@@ -45,6 +45,6 @@
 		"regenerate": "^1.2.1",
 		"regex-trie": "^1.0.4",
 		"string.fromcodepoint": "^0.2.1",
-		"unicode-tr51": "^5.0.0"
+		"unicode-tr51": "^6.0.0"
 	}
 }

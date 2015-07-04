@@ -29,6 +29,14 @@ describe('Emoji regex', function() {
 			'\uD83C\uDDFA\uD83C\uDDF8'
 		);
 
+		// U+0031 DIGIT ONE
+		// U+20E3 COMBINING ENCLOSING KEYCAP
+		assert(emojiRegex().test('1\u20E3'));
+		assert.deepEqual(
+			'1\u20E3'.match(emojiRegex())[0],
+			'1\u20E3'
+		);
+
 	});
 
 	// Test all emoji symbols as per the Unicode standard.
