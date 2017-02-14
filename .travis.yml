@@ -1,16 +1,9 @@
 sudo: false
 language: node_js
 node_js:
-  - '4'
-  - '5'
   - '6'
   - '7'
 script:
-  - 'if [ "${TRAVIS_NODE_VERSION}" = "7" ]; then
-       npm run build;
-     fi'
-  - 'npm test'
-after_script:
-  - "istanbul cover --verbose --dir coverage node_modules/.bin/_mocha scripts/generate-regex.js -- -u exports -R spec && coveralls < coverage/lcov.info; rm -rf coverage/lcov*"
+  - npm test
 git:
   depth: 1

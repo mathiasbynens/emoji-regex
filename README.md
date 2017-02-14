@@ -1,4 +1,4 @@
-# emoji-regex [![Build status](https://travis-ci.org/mathiasbynens/emoji-regex.svg?branch=master)](https://travis-ci.org/mathiasbynens/emoji-regex) [![Code coverage status](http://img.shields.io/coveralls/mathiasbynens/emoji-regex/master.svg)](https://coveralls.io/r/mathiasbynens/emoji-regex) [![Dependency status](https://gemnasium.com/mathiasbynens/emoji-regex.svg)](https://gemnasium.com/mathiasbynens/emoji-regex)
+# emoji-regex [![Build status](https://travis-ci.org/mathiasbynens/emoji-regex.svg?branch=master)](https://travis-ci.org/mathiasbynens/emoji-regex)
 
 _emoji-regex_ offers a regular expression to match all emoji symbols (including textual representations of emoji) as per the Unicode Standard.
 
@@ -15,22 +15,37 @@ npm install emoji-regex
 In [Node.js](https://nodejs.org/):
 
 ```js
-var emojiRegex = require('emoji-regex');
+const emojiRegex = require('emoji-regex');
 // Note: because the regular expression has the global flag set, this module
 // exports a function that returns the regex rather than exporting the regular
 // expression itself, to make it impossible to (accidentally) mutate the
 // original regular expression.
 
-emojiRegex().test('🆘');
-// → true
-emojiRegex().test('💩');
-// → true
-emojiRegex().test('🇺🇸');
-// → true
+const text = `
+\u{231A}: ⌚ default emoji presentation character (Emoji_Presentation)
+\u{2194}\u{FE0F}: ↔️ default text presentation character rendered as emoji
+\u{1F469}: 👩 emoji modifier base (Emoji_Modifier_Base)
+\u{1F469}\u{1F3FF}: 👩🏿 emoji modifier base followed by a modifier
+`;
 
-var flag = '🇺🇸'; // flag for United States
-flag.match(emojiRegex())[0] == flag;
-// → true
+let match;
+while (match = emojiRegex.exec(text)) {
+  const emoji = match[0];
+  console.log(`Matched sequence ${ emoji } — code points: ${ [...emoji].length }`);
+}
+```
+
+Console output:
+
+```
+Matched sequence ⌚ — code points: 1
+Matched sequence ⌚ — code points: 1
+Matched sequence ↔️ — code points: 2
+Matched sequence ↔️ — code points: 2
+Matched sequence 👩 — code points: 1
+Matched sequence 👩 — code points: 1
+Matched sequence 👩🏿 — code points: 2
+Matched sequence 👩🏿 — code points: 2
 ```
 
 ## Author
