@@ -29,7 +29,7 @@ const text = `
 `;
 
 let match;
-while (match = emojiRegex.exec(text)) {
+while (match = emojiRegex().exec(text)) {
   const emoji = match[0];
   console.log(`Matched sequence ${ emoji } — code points: ${ [...emoji].length }`);
 }
