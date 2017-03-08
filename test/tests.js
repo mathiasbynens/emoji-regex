@@ -71,4 +71,7 @@ describe('Emoji regex', () => {
 	// Test a default text presentation character rendered as emoji.
 	test('\u{2194}\u{FE0F}');
 
+	// Test an emoji that was added in v4 of emoji-data.txt.
+	test('\u{1F923}'); // U+1F923 ROLLING ON THE FLOOR LAUGHING
+
 });
