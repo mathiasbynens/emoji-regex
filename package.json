@@ -1,9 +1,9 @@
 {
   "name": "emoji-regex",
-  "version": "6.1.1",
+  "version": "6.1.2",
   "description": "A regular expression to match all Emoji-only symbols as per the Unicode Standard.",
   "homepage": "https://mths.be/emoji-regex",
-  "main": "index.js",
+  "main": "dist/index.js",
   "keywords": [
     "unicode",
     "regex",
