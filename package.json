@@ -29,10 +29,10 @@
     "dist/index.js"
   ],
   "scripts": {
-    "build": "babel src -d dist",
+    "build": "babel src -d dist; node script/inject-sequences.js",
     "clean": "rm -rf dist",
     "prepublish": "npm run clean && npm run build",
-    "test": "mocha --compilers js:babel-register",
+    "test": "npm run build && mocha",
     "test:watch": "npm run test -- --watch"
   },
   "devDependencies": {
@@ -41,6 +41,7 @@
     "babel-plugin-transform-unicode-property-regex": "^2.0.1",
     "babel-preset-es2015": "^6.18.0",
     "mocha": "^3.2.0",
-    "unicode-tr51": "^8.0.1"
+    "regexgen": "mathiasbynens/regexgen#sort-alternation",
+    "unicode-tr51": "^8.1.1"
   }
 }

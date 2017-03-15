@@ -1,5 +1,5 @@
 const assert = require('assert');
-const emojiRegex = require('../src/index.js');
+const emojiRegex = require('../dist/index.js');
 
 describe('Emoji regex', () => {
 
@@ -45,7 +45,6 @@ describe('Emoji regex', () => {
 	const test = (string) => {
 		it(`matches ${ string } as a single unit`, () => {
 			assert(emojiRegex().test(string));
-			console.log(string.match(emojiRegex()))
 			assert.deepEqual(string.match(emojiRegex())[0], string);
 		});
 	};
@@ -73,5 +72,11 @@ describe('Emoji regex', () => {
 
 	// Test an emoji that was added in v4 of emoji-data.txt.
 	test('\u{1F923}'); // U+1F923 ROLLING ON THE FLOOR LAUGHING
+
+	// Test a regular emoji sequence (`emoji-sequences.txt`).
+	test('\u{1F3F4}\u{E0067}\u{E0062}\u{E0065}\u{E006E}\u{E0067}\u{E007F}');
+
+	// Test a ZWJ emoji sequence (`emoji-zwj-sequences.txt`).
+	test('\u{1F3CA}\u{1F3FD}\u200D\u2640\uFE0F');
 
 });
