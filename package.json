@@ -3,7 +3,7 @@
   "version": "6.3.0",
   "description": "A regular expression to match all Emoji-only symbols as per the Unicode Standard.",
   "homepage": "https://mths.be/emoji-regex",
-  "main": "dist/index.js",
+  "main": "index.js",
   "keywords": [
     "unicode",
     "regex",
@@ -26,12 +26,12 @@
   "bugs": "https://github.com/mathiasbynens/emoji-regex/issues",
   "files": [
     "LICENSE-MIT.txt",
-    "dist/index.js",
-    "dist/text.js"
+    "index.js",
+    "text.js"
   ],
   "scripts": {
-    "build": "babel src -d dist; node script/inject-sequences.js",
-    "clean": "rm -rf dist",
+    "build": "babel src -d .; node script/inject-sequences.js",
+    "clean": "rm -- index.js text.js",
     "prepublish": "npm run clean && npm run build",
     "test": "npm run build && mocha",
     "test:watch": "npm run test -- --watch"

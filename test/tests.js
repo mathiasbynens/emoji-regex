@@ -1,6 +1,6 @@
 const assert = require('assert');
-const emojiRegex = require('../dist/index.js');
-const emojiWithTextRegex = require('../dist/text.js');
+const emojiRegex = require('../index.js');
+const emojiWithTextRegex = require('../text.js');
 
 describe('Emoji regex', () => {
 

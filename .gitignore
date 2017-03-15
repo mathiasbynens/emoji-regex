@@ -1,4 +1,5 @@
-dist
+index.js
+text.js
 
 # Coverage report
 coverage
