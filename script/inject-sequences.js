@@ -10,7 +10,8 @@ for (const sequence of sequences) {
 const sequencePattern = trie.toString();
 console.log(sequencePattern);
 
-const file = 'dist/index.js';
-const input = fs.readFileSync(file, 'utf8');
-const output = input.replace('<% emojiSequence %>', sequencePattern);
-fs.writeFileSync(file, output);
+for (const file of ['dist/index.js', 'dist/text.js']) {
+	const input = fs.readFileSync(file, 'utf8');
+	const output = input.replace('<% emojiSequence %>', sequencePattern);
+	fs.writeFileSync(file, output);
+}

@@ -26,7 +26,8 @@
   "bugs": "https://github.com/mathiasbynens/emoji-regex/issues",
   "files": [
     "LICENSE-MIT.txt",
-    "dist/index.js"
+    "dist/index.js",
+    "dist/text.js"
   ],
   "scripts": {
     "build": "babel src -d dist; node script/inject-sequences.js",

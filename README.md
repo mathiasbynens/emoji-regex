@@ -48,6 +48,12 @@ Matched sequence 👩🏿 — code points: 2
 Matched sequence 👩🏿 — code points: 2
 ```
 
+To match emoji in their textual representation as well (i.e. emoji that are not `Emoji_Presentation` symbols and that aren’t forced to render as emoji by a variation selector), `require` the other regex:
+
+```js
+const emojiRegex = require('emoji-regex/text.js');
+```
+
 ## Author
 
 | [![twitter/mathias](https://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](https://twitter.com/mathias "Follow @mathias on Twitter") |
