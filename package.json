@@ -31,7 +31,7 @@
   ],
   "scripts": {
     "build": "babel src -d .; node script/inject-sequences.js",
-    "clean": "rm -- index.js text.js",
+    "clean": "rm -f -- index.js text.js",
     "prepublish": "npm run clean && npm run build",
     "test": "npm run build && mocha",
     "test:watch": "npm run test -- --watch"
