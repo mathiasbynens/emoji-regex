@@ -42,7 +42,7 @@
     "babel-plugin-transform-unicode-property-regex": "^2.0.1",
     "babel-preset-env": "^1.2.2",
     "mocha": "^3.2.0",
-    "regexgen": "mathiasbynens/regexgen#sort-alternation",
+    "regexgen": "^1.2.3",
     "unicode-tr51": "^8.1.1"
   }
 }
