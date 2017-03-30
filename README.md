@@ -28,8 +28,9 @@ const text = `
 \u{1F469}\u{1F3FF}: 👩🏿 emoji modifier base followed by a modifier
 `;
 
+const regex = emojiRegex();
 let match;
-while (match = emojiRegex().exec(text)) {
+while (match = regex.exec(text)) {
   const emoji = match[0];
   console.log(`Matched sequence ${ emoji } — code points: ${ [...emoji].length }`);
 }
