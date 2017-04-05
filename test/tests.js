@@ -82,7 +82,14 @@ describe('Regex that includes emoji as their text representation', () => {
 	};
 
 	// Test a default text presentation character rendered as emoji.
+	// Hardcoded tests just to be safe, repeated by the scripted loop below.
 	test('\u{2194}');
 	test('\u{1F321}');
+
+	// Test `Emoji` symbols.
+	const Emoji = require('unicode-tr51/Emoji.js');
+	for (const codePoint of Emoji) {
+		test(String.fromCodePoint(codePoint));
+	}
 
 });
