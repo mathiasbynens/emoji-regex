@@ -6,5 +6,7 @@
       }
     }]
   ],
-  "plugins": ["transform-unicode-property-regex"]
+  "plugins": [
+    ["transform-unicode-property-regex", { "useUnicodeFlag": true }]
+  ]
 }

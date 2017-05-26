@@ -42,7 +42,7 @@
     "babel-plugin-transform-unicode-property-regex": "^2.0.2",
     "babel-preset-env": "^1.5.2",
     "mocha": "^3.4.2",
-    "regexgen": "^1.2.4",
+    "regexgen": "https://github.com/ticky/regexgen.git#es6-unicode-hax",
     "unicode-tr51": "^8.1.2"
   }
 }
