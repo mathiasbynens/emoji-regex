@@ -1,6 +1,7 @@
 const assert = require('assert');
 const emojiRegex = require('../index.js');
 const emojiWithTextRegex = require('../text.js');
+const EMOJI_SEQUENCES = require('unicode-tr51/sequences.js');
 
 describe('Emoji regex', () => {
 
@@ -71,8 +72,7 @@ describe('Emoji regex', () => {
 	test('\u{1F3CA}\u{1F3FD}\u200D\u2640\uFE0F');
 
 	// Test all emoji sequences.
-	const sequences = require('unicode-tr51/sequences.js');
-	for (const sequence of sequences) {
+	for (const sequence of EMOJI_SEQUENCES) {
 		test(sequence);
 	}
 
@@ -96,6 +96,11 @@ describe('Regex that includes emoji as their text representation', () => {
 	const Emoji = require('unicode-tr51/Emoji.js');
 	for (const codePoint of Emoji) {
 		test(String.fromCodePoint(codePoint));
+	}
+
+	// Test all emoji sequences.
+	for (const sequence of EMOJI_SEQUENCES) {
+		test(sequence);
 	}
 
 });
