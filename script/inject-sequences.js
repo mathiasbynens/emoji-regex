@@ -2,11 +2,10 @@ const fs = require('fs');
 
 const Trie = require('regexgen').Trie;
 const sequences = require('unicode-tr51/sequences.js');
+sequences.sort((a, b) => b.length - a.length);
 
 const trie = new Trie();
-for (const sequence of sequences) {
-	trie.add(sequence);
-}
+trie.addAll(sequences);
 const sequencePattern = trie.toString();
 console.log(sequencePattern);
 
