@@ -70,6 +70,12 @@ describe('Emoji regex', () => {
 	// Test a ZWJ emoji sequence (`emoji-zwj-sequences.txt`).
 	test('\u{1F3CA}\u{1F3FD}\u200D\u2640\uFE0F');
 
+	// Test all emoji sequences.
+	const sequences = require('unicode-tr51/sequences.js');
+	for (const sequence of sequences) {
+		test(sequence);
+	}
+
 });
 
 describe('Regex that includes emoji as their text representation', () => {
