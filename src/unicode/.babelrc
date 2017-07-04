@@ -1,5 +1,11 @@
 {
-  "extends": "../../.babelrc",
+  "presets": [
+    ["env", {
+      "targets": {
+        "node": 6
+      }
+    }]
+  ],
   "plugins": [
     ["transform-unicode-property-regex", { "useUnicodeFlag": true }]
   ]
