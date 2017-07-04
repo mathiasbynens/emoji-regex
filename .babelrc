@@ -6,7 +6,6 @@
       }
     }]
   ],
-  "plugins": [
-    ["transform-unicode-property-regex", { "useUnicodeFlag": true }]
-  ]
+  "plugins": ["transform-unicode-property-regex"]
+  // Note: This configuration is overridden for files in src/unicode
 }

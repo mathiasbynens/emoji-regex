@@ -6,11 +6,19 @@ sequences.sort((a, b) => b.length - a.length);
 
 const trie = new Trie();
 trie.addAll(sequences);
-const sequencePattern = trie.toString();
-console.log(sequencePattern);
 
-for (const file of ['index.js', 'text.js']) {
+const emojiSequence = trie.toString();
+console.log(emojiSequence);
+
+const emojiSequenceUnicode = trie.toString('u');
+console.log(emojiSequenceUnicode);
+
+for (const file of ['index.js', 'text.js', 'unicode/index.js', 'unicode/text.js']) {
 	const input = fs.readFileSync(file, 'utf8');
-	const output = input.replace('<% emojiSequence %>', sequencePattern);
+
+	const output = input
+		.replace('<% emojiSequence %>', emojiSequence)
+		.replace('<% emojiSequenceUnicode %>', emojiSequenceUnicode);
+
 	fs.writeFileSync(file, output);
 }

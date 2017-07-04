@@ -27,7 +27,9 @@
   "files": [
     "LICENSE-MIT.txt",
     "index.js",
-    "text.js"
+    "text.js",
+    "unicode/index.js",
+    "unicode/text.js"
   ],
   "scripts": {
     "build": "babel src -d .; node script/inject-sequences.js",

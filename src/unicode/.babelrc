@@ -1,0 +1,6 @@
+{
+  "extends": "../../.babelrc",
+  "plugins": [
+    ["transform-unicode-property-regex", { "useUnicodeFlag": true }]
+  ]
+}
