@@ -55,11 +55,11 @@ To match emoji in their textual representation as well (i.e. emoji that are not 
 const emojiRegex = require('emoji-regex/text.js');
 ```
 
-Additionally, in environments which support ES6 Unicode escapes, you may `require` ES6-style versions of the regexes:
+Additionally, in environments which support ES2015 Unicode escapes, you may `require` ES2015-style versions of the regexes:
 
 ```js
-const emojiRegex = require('emoji-regex/unicode/index.js');
-const emojiRegexText = require('emoji-regex/unicode/text.js');
+const emojiRegex = require('emoji-regex/es2015/index.js');
+const emojiRegexText = require('emoji-regex/es2015/text.js');
 ```
 
 ## Author

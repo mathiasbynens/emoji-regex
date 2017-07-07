@@ -3,8 +3,8 @@ const assert = require('assert');
 const regex = require('../index.js');
 const textRegex = require('../text.js');
 
-const regexUnicode = require('../unicode/index.js');
-const textRegexUnicode = require('../unicode/text.js');
+const regexES2015 = require('../es2015/index.js');
+const textRegexES2015 = require('../es2015/text.js');
 
 const EMOJI_SEQUENCES = require('unicode-tr51/sequences.js');
 
@@ -114,4 +114,4 @@ const suite = (emojiRegex, emojiWithTextRegex) => () => {
 };
 
 describe('Standard', suite(regex, textRegex));
-describe('Unicode', suite(regexUnicode, textRegexUnicode));
+describe('ES2015 Unicode', suite(regexES2015, textRegexES2015));

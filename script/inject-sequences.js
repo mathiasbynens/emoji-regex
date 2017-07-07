@@ -13,7 +13,7 @@ console.log(emojiSequence);
 const emojiSequenceUnicode = trie.toString('u');
 console.log(emojiSequenceUnicode);
 
-for (const file of ['index.js', 'text.js', 'unicode/index.js', 'unicode/text.js']) {
+for (const file of ['index.js', 'text.js', 'es2015/index.js', 'es2015/text.js']) {
 	const input = fs.readFileSync(file, 'utf8');
 
 	const output = input

@@ -28,8 +28,8 @@
     "LICENSE-MIT.txt",
     "index.js",
     "text.js",
-    "unicode/index.js",
-    "unicode/text.js"
+    "es2015/index.js",
+    "es2015/text.js"
   ],
   "scripts": {
     "build": "babel src -d .; node script/inject-sequences.js",

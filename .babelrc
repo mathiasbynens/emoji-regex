@@ -7,5 +7,5 @@
     }]
   ],
   "plugins": ["transform-unicode-property-regex"]
-  // Note: This configuration is overridden for files in src/unicode
+  // Note: This configuration is overridden for files in src/es2015
 }
