@@ -1,11 +1,30 @@
 {
-  "presets": [
-    ["env", {
-      "targets": {
-        "node": 4
-      }
-    }]
-  ],
-  "plugins": ["transform-unicode-property-regex"]
-  // Note: This configuration is overridden for files in src/es2015
+  "env": {
+    "development": {
+      "presets": [
+        ["env", {
+          "targets": {
+            "node": 4
+          }
+        }]
+      ],
+      "plugins": [
+        "transform-unicode-property-regex"
+      ]
+    },
+    "es2015": {
+      "presets": [
+        ["env", {
+          "targets": {
+            "node": 6
+          }
+        }]
+      ],
+      "plugins": [
+        ["transform-unicode-property-regex", {
+          "useUnicodeFlag": true
+        }]
+      ]
+    }
+  }
 }
