@@ -113,5 +113,5 @@ const suite = (emojiRegex, emojiWithTextRegex) => () => {
 
 };
 
-describe('Standard', suite(regex, textRegex));
+describe('ES5', suite(regex, textRegex));
 describe('ES2015 Unicode', suite(regexES2015, textRegexES2015));
