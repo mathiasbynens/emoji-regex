@@ -8,7 +8,7 @@ const textRegexES2015 = require('../es2015/text.js');
 
 const EMOJI_SEQUENCES = require('unicode-tr51/sequences.js');
 
-const suite = (emojiRegex, emojiWithTextRegex) => () => {
+const suite = (emojiRegex, emojiWithTextRegex, additionalTests=()=>{}) => () => {
 	describe('regex', () => {
 
 		// Start off with some hardcoded tests just to be safe. These are repeated by
@@ -82,6 +82,8 @@ const suite = (emojiRegex, emojiWithTextRegex) => () => {
 			test(sequence);
 		}
 
+		additionalTests(emojiRegex);
+
 	});
 
 	describe('regex that includes emoji as their text representation', () => {
@@ -109,9 +111,24 @@ const suite = (emojiRegex, emojiWithTextRegex) => () => {
 			test(sequence);
 		}
 
+		additionalTests(emojiWithTextRegex);
+
 	});
 
 };
 
-describe('ES5', suite(regex, textRegex));
-describe('ES2015 Unicode', suite(regexES2015, textRegexES2015));
+describe('ES5', suite(regex, textRegex, (regex) => {
+	it('contains no UTF-8 characters', () => {
+		const regexSource = regex().source;
+
+		assert(/\\u\{/.test(regexSource) === false);
+	});
+}));
+
+describe('ES2015 Unicode', suite(regexES2015, textRegexES2015, (regex) => {
+	it('contains no surrogate pair characters', () => {
+		const regexSource = regex().source;
+
+		assert(/\\uD[8-9a-fA-F]/gi.test(regexSource) === false);
+	});
+}));
