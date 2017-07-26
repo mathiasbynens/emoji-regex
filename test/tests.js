@@ -129,6 +129,6 @@ describe('ES2015 Unicode', suite(regexES2015, textRegexES2015, (regex) => {
 	it('contains no surrogate characters', () => {
 		const regexSource = regex().source;
 
-		assert(/\\uD[8-9a-fA-F]/gi.test(regexSource) === false);
+		assert(/\\uD[8-9a-fA-F]/g.test(regexSource) === false);
 	});
 }));
