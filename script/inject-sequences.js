@@ -1,8 +1,8 @@
 const fs = require('fs');
 
 const Trie = require('regexgen').Trie;
-const sequences = require('unicode-tr51/sequences.js');
-sequences.sort((a, b) => b.length - a.length);
+const sequences = require('unicode-tr51/sequences.js')
+  .sort((a, b) => b.length - a.length);
 
 const trie = new Trie();
 trie.addAll(sequences);
