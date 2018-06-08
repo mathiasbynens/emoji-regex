@@ -2,26 +2,26 @@
   "env": {
     "development": {
       "presets": [
-        ["env", {
+        ["@babel/env", {
           "targets": {
             "node": 4
           }
         }]
       ],
       "plugins": [
-        "transform-unicode-property-regex"
+        "@babel/plugin-proposal-unicode-property-regex"
       ]
     },
     "es2015": {
       "presets": [
-        ["env", {
+        ["@babel/env", {
           "targets": {
             "node": 6
           }
         }]
       ],
       "plugins": [
-        ["transform-unicode-property-regex", {
+        ["@babel/plugin-proposal-unicode-property-regex", {
           "useUnicodeFlag": true
         }]
       ]

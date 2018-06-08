@@ -37,12 +37,13 @@
     "test:watch": "npm run test -- --watch"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-plugin-transform-unicode-property-regex": "^2.0.3",
-    "babel-preset-env": "^1.6.0",
-    "mocha": "^3.5.0",
+    "@babel/cli": "^7.0.0-beta.49",
+    "@babel/core": "^7.0.0-beta.49",
+    "@babel/plugin-proposal-unicode-property-regex": "^7.0.0-beta.49",
+    "@babel/preset-env": "^7.0.0-beta.49",
+    "mocha": "^5.2.0",
     "regexgen": "^1.3.0",
-    "unicode-tr51": "^9.0.0"
+    "unicode-11.0.0": "^0.7.7",
+    "unicode-tr51": "^9.0.1"
   }
 }
