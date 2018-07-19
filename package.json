@@ -3,7 +3,8 @@
   "version": "7.0.0",
   "description": "A regular expression to match all Emoji-only symbols as per the Unicode Standard.",
   "homepage": "https://mths.be/emoji-regex",
-  "main": "index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
   "keywords": [
     "unicode",
     "regex",
@@ -33,6 +34,7 @@
   ],
   "scripts": {
     "build": "rm -rf -- es2015; babel src -d .; NODE_ENV=es2015 babel src -d ./es2015; node script/inject-sequences.js",
+    "rollup": "rollup -c build/rollup.config.js",
     "test": "mocha",
     "test:watch": "npm run test -- --watch"
   },
@@ -43,7 +45,11 @@
     "@babel/preset-env": "^7.0.0-beta.49",
     "mocha": "^5.2.0",
     "regexgen": "^1.3.0",
+    "rollup": "^0.63.2",
+    "rollup-plugin-babel": "^4.0.0-beta.7",
+    "rollup-plugin-commonjs": "^9.1.3",
     "unicode-11.0.0": "^0.7.7",
     "unicode-tr51": "^9.0.1"
-  }
+  },
+  "dependencies": {}
 }
