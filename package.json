@@ -28,6 +28,7 @@
   "files": [
     "LICENSE-MIT.txt",
     "index.js",
+    "index.d.ts",
     "text.js",
     "es2015/index.js",
     "es2015/text.js"
