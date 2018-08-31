@@ -1,4 +1,4 @@
 module.exports = () => {
-	// https://mathiasbynens.be/notes/es-unicode-property-escapes#emoji
-	return /<% emojiSequence %>|\p{Emoji_Modifier_Base}\p{Emoji_Modifier}?|\p{Emoji_Presentation}|\p{Emoji}\uFE0F?/gu;
+	// https://mths.be/emoji
+	return /<% emojiSequence %>|\p{Emoji_Presentation}|\p{Emoji}\uFE0F?|\p{Emoji_Modifier_Base}/gu;
 };

@@ -64,8 +64,9 @@ const suite = (emojiRegex, emojiWithTextRegex, additionalTests = () => {}) => ()
 		test('\u{1F469}');
 
 		// Test a default text presentation character rendered as emoji.
-		test('\u{2194}\u{FE0F}');
-		test('\u{1F321}\u{FE0F}');
+		test('\u{2194}\uFE0F');
+		test('\u{1F321}\uFE0F');
+		test('\u261D\uFE0F');
 
 		// Test an emoji that was added in v4 of emoji-data.txt.
 		test('\u{1F923}'); // U+1F923 ROLLING ON THE FLOOR LAUGHING
