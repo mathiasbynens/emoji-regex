@@ -4,6 +4,7 @@
   "description": "A regular expression to match all Emoji-only symbols as per the Unicode Standard.",
   "homepage": "https://mths.be/emoji-regex",
   "main": "index.js",
+  "types": "index.d.ts",
   "keywords": [
     "unicode",
     "regex",
