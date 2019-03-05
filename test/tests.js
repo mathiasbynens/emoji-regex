@@ -6,7 +6,7 @@ const textRegex = require('../text.js');
 const regexES2015 = require('../es2015/index.js');
 const textRegexES2015 = require('../es2015/text.js');
 
-const EMOJI_SEQUENCES = require('unicode-tr51/sequences.js');
+const EMOJI_SEQUENCES = require('../script/get-sequences.js');
 
 const suite = (emojiRegex, emojiWithTextRegex, additionalTests = () => {}) => () => {
 	describe('regex', () => {
@@ -36,6 +36,18 @@ const suite = (emojiRegex, emojiWithTextRegex, additionalTests = () => {}) => ()
 				'\u{1F1FA}\u{1F1F8}'
 			);
 
+			// U+1F469 WOMAN
+			// U+1F3FE EMOJI MODIFIER FITZPATRICK TYPE-5
+			// U+200D ZERO WIDTH JOINER
+			// U+2708 AIRPLANE
+			// U+FE0F VARIATION SELECTOR-16
+			// → woman pilot: medium-dark skin tone
+			assert(emojiRegex().test('\u{1F469}\u{1F3FE}\u200D\u2708\uFE0F'));
+			assert.deepEqual(
+				'\u{1F469}\u{1F3FE}\u200D\u2708\uFE0F'.match(emojiRegex())[0],
+				'\u{1F469}\u{1F3FE}\u200D\u2708\uFE0F'
+			);
+
 		});
 
 		const test = (string) => {
@@ -46,15 +58,15 @@ const suite = (emojiRegex, emojiWithTextRegex, additionalTests = () => {}) => ()
 		};
 
 		// Test `Emoji_Presentation` symbols.
-		const Emoji_Presentation = require('unicode-tr51/Emoji_Presentation.js');
-		for (const codePoint of Emoji_Presentation) {
-			test(String.fromCodePoint(codePoint));
+		const Emoji_Presentation = require('unicode-12.0.0/Binary_Property/Emoji_Presentation/symbols.js');
+		for (const symbol of Emoji_Presentation) {
+			test(symbol);
 		}
 
 		// Test `Emoji_Modifier_Base` symbols.
-		const Emoji_Modifier_Base = require('unicode-tr51/Emoji_Modifier_Base.js');
-		for (const codePoint of Emoji_Modifier_Base) {
-			test(String.fromCodePoint(codePoint));
+		const Emoji_Modifier_Base = require('unicode-12.0.0/Binary_Property/Emoji_Modifier_Base/symbols.js');
+		for (const symbol of Emoji_Modifier_Base) {
+			test(symbol);
 		}
 
 		// Test an `Emoji_Modifier_Base` followed by an `Emoji_Modifier`.
@@ -102,9 +114,9 @@ const suite = (emojiRegex, emojiWithTextRegex, additionalTests = () => {}) => ()
 		test('\u{1F321}');
 
 		// Test `Emoji` symbols.
-		const Emoji = require('unicode-tr51/Emoji.js');
-		for (const codePoint of Emoji) {
-			test(String.fromCodePoint(codePoint));
+		const Emoji = require('unicode-12.0.0/Binary_Property/Emoji/symbols.js');
+		for (const symbol of Emoji) {
+			test(symbol);
 		}
 
 		// Test all emoji sequences.
