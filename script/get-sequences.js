@@ -6,7 +6,7 @@ const properties = [
 	'Emoji_ZWJ_Sequence',
 ];
 const sequences = properties.reduce((accumulator, property) => {
-	const array = require(`unicode-12.0.0/Sequence_Property/${property}/index.js`);
+	const array = require(`unicode-12.1.0/Sequence_Property/${property}/index.js`);
 	return [...accumulator, ...array];
 }, []).sort((a, b) => [...b].length - [...a].length);
 
