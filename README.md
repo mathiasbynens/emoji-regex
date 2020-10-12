@@ -2,7 +2,7 @@
 
 _emoji-regex_ offers a regular expression to match all emoji symbols (including textual representations of emoji) as per the Unicode Standard.
 
-This repository contains a script that generates this regular expression based on [the data from Unicode v13](https://github.com/mathiasbynens/unicode-13.0.0). Because of this, the regular expression can easily be updated whenever new emoji are added to the Unicode standard.
+This repository contains a script that generates this regular expression based on [Unicode data](https://github.com/node-unicode/node-unicode-data). Because of this, the regular expression can easily be updated whenever new emoji are added to the Unicode standard.
 
 ## Installation
 
@@ -61,6 +61,46 @@ Additionally, in environments which support ES2015 Unicode escapes, you may `req
 const emojiRegex = require('emoji-regex/es2015/index.js');
 const emojiRegexText = require('emoji-regex/es2015/text.js');
 ```
+
+## For contributors: how to update emoji-regex after new Unicode Standard releases
+
+1. Update the Unicode data dependency in `package.json` by running the following commands:
+
+    ```sh
+    # Example: updating from Unicode v12 to Unicode v13.
+    npm uninstall @unicode/unicode-12.0.0
+    npm install @unicode/unicode-13.0.0 --save-dev
+    ````
+
+1. Generate the new output:
+
+    ```sh
+    npm run build
+    ```
+
+1. Verify that tests still pass:
+
+    ```sh
+    npm test
+    ```
+
+1. Send a pull request with the changes.
+
+1. In a separate pull request, bump the emoji-regex version number in `package.json`:
+
+    ```sh
+    npm version patch -m 'Release v%s'
+    ```
+
+    Instead of `patch`, use `minor` or `major` [as needed](https://semver.org/).
+
+1. Once both pull requests are merged, tag the new release:
+
+    ```sh
+    git tag v0.1.2
+    git push --tags
+    npm publish
+    ```
 
 ## Author
 
