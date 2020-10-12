@@ -6,6 +6,7 @@ const textRegex = require('../text.js');
 const regexES2015 = require('../es2015/index.js');
 const textRegexES2015 = require('../es2015/text.js');
 
+const unicodeDataPackage = require('../script/unicode-data-package.js');
 const EMOJI_SEQUENCES = require('../script/get-sequences.js');
 
 const suite = (emojiRegex, emojiWithTextRegex, additionalTests = () => {}) => () => {
@@ -58,13 +59,13 @@ const suite = (emojiRegex, emojiWithTextRegex, additionalTests = () => {}) => ()
 		};
 
 		// Test `Emoji_Presentation` symbols.
-		const Emoji_Presentation = require('unicode-13.0.0/Binary_Property/Emoji_Presentation/symbols.js');
+		const Emoji_Presentation = require(`${unicodeDataPackage}/Binary_Property/Emoji_Presentation/symbols.js`);
 		for (const symbol of Emoji_Presentation) {
 			test(symbol);
 		}
 
 		// Test `Emoji_Modifier_Base` symbols.
-		const Emoji_Modifier_Base = require('unicode-13.0.0/Binary_Property/Emoji_Modifier_Base/symbols.js');
+		const Emoji_Modifier_Base = require(`${unicodeDataPackage}/Binary_Property/Emoji_Modifier_Base/symbols.js`);
 		for (const symbol of Emoji_Modifier_Base) {
 			test(symbol);
 		}
@@ -114,7 +115,7 @@ const suite = (emojiRegex, emojiWithTextRegex, additionalTests = () => {}) => ()
 		test('\u{1F321}');
 
 		// Test `Emoji` symbols.
-		const Emoji = require('unicode-13.0.0/Binary_Property/Emoji/symbols.js');
+		const Emoji = require(`${unicodeDataPackage}/Binary_Property/Emoji/symbols.js`);
 		for (const symbol of Emoji) {
 			test(symbol);
 		}
