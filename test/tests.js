@@ -1,15 +1,17 @@
 const assert = require('assert');
 
 const regex = require('../index.js');
-const textRegex = require('../text.js');
+const regexRgi = require('../RGI_Emoji.js');
+const regexText = require('../text.js');
 
 const regexES2015 = require('../es2015/index.js');
-const textRegexES2015 = require('../es2015/text.js');
+const regexRgiES2015 = require('../es2015/RGI_Emoji.js');
+const regexTextES2015 = require('../es2015/text.js');
 
 const unicodeDataPackage = require('../script/unicode-data-package.js');
-const EMOJI_SEQUENCES = require('../script/get-sequences.js');
+const RGI_EMOJI_SEQUENCES = require('../script/get-sequences.js');
 
-const suite = (emojiRegex, emojiWithTextRegex, additionalTests = () => {}) => () => {
+const suite = (emojiRegex, emojiRgiRegex, emojiWithTextRegex, additionalTests = () => {}) => () => {
 	describe('regex', () => {
 
 		// Start off with some hardcoded tests just to be safe. These are repeated by
@@ -23,7 +25,7 @@ const suite = (emojiRegex, emojiWithTextRegex, additionalTests = () => {}) => ()
 			// U+1F1EA REGIONAL INDICATOR SYMBOL LETTER E
 			// → flag for Yemen
 			assert(emojiRegex().test('\u{1F1FE}\u{1F1EA}'));
-			assert.deepEqual(
+			assert.deepStrictEqual(
 				'\u{1F1FE}\u{1F1EA}'.match(emojiRegex())[0],
 				'\u{1F1FE}\u{1F1EA}'
 			);
@@ -32,7 +34,7 @@ const suite = (emojiRegex, emojiWithTextRegex, additionalTests = () => {}) => ()
 			// U+1F1F8 REGIONAL INDICATOR SYMBOL LETTER S
 			// → flag for United States
 			assert(emojiRegex().test('\u{1F1FA}\u{1F1F8}'));
-			assert.deepEqual(
+			assert.deepStrictEqual(
 				'\u{1F1FA}\u{1F1F8}'.match(emojiRegex())[0],
 				'\u{1F1FA}\u{1F1F8}'
 			);
@@ -44,7 +46,7 @@ const suite = (emojiRegex, emojiWithTextRegex, additionalTests = () => {}) => ()
 			// U+FE0F VARIATION SELECTOR-16
 			// → woman pilot: medium-dark skin tone
 			assert(emojiRegex().test('\u{1F469}\u{1F3FE}\u200D\u2708\uFE0F'));
-			assert.deepEqual(
+			assert.deepStrictEqual(
 				'\u{1F469}\u{1F3FE}\u200D\u2708\uFE0F'.match(emojiRegex())[0],
 				'\u{1F469}\u{1F3FE}\u200D\u2708\uFE0F'
 			);
@@ -54,7 +56,7 @@ const suite = (emojiRegex, emojiWithTextRegex, additionalTests = () => {}) => ()
 		const test = (string) => {
 			it(`matches ${ string } as a single unit`, () => {
 				assert(emojiRegex().test(string));
-				assert.deepEqual(string.match(emojiRegex())[0], string);
+				assert.deepStrictEqual(string.match(emojiRegex())[0], string);
 			});
 		};
 
@@ -91,12 +93,33 @@ const suite = (emojiRegex, emojiWithTextRegex, additionalTests = () => {}) => ()
 		// Test a ZWJ emoji sequence (`emoji-zwj-sequences.txt`).
 		test('\u{1F3CA}\u{1F3FD}\u200D\u2640\uFE0F');
 
-		// Test all emoji sequences.
-		for (const sequence of EMOJI_SEQUENCES) {
+		// Test all RGI_Emoji sequences.
+		for (const sequence of RGI_EMOJI_SEQUENCES) {
 			test(sequence);
 		}
 
 		additionalTests(emojiRegex);
+
+	});
+
+	describe('regex for RGI_Emoji', () => {
+		// Note in particular that `RGI_Emoji` excludes all instances of
+		// emoji component code points, which are not intended for
+		// independent, direct input. This means certain `Emoji` and
+		// certain `Emoji_Presentation` code points should not match!
+		const test = (string) => {
+			it(`matches ${ string } as a single unit`, () => {
+				assert(emojiRgiRegex().test(string));
+				assert.deepStrictEqual(string.match(emojiRgiRegex())[0], string);
+			});
+		};
+
+		// Test all RGI_Emoji sequences.
+		for (const sequence of RGI_EMOJI_SEQUENCES) {
+			test(sequence);
+		}
+
+		additionalTests(emojiRgiRegex);
 
 	});
 
@@ -105,7 +128,7 @@ const suite = (emojiRegex, emojiWithTextRegex, additionalTests = () => {}) => ()
 		const test = (string) => {
 			it(`matches ${ string } as a single unit`, () => {
 				assert(emojiWithTextRegex().test(string));
-				assert.deepEqual(string.match(emojiWithTextRegex())[0], string);
+				assert.deepStrictEqual(string.match(emojiWithTextRegex())[0], string);
 			});
 		};
 
@@ -120,8 +143,8 @@ const suite = (emojiRegex, emojiWithTextRegex, additionalTests = () => {}) => ()
 			test(symbol);
 		}
 
-		// Test all emoji sequences.
-		for (const sequence of EMOJI_SEQUENCES) {
+		// Test all RGI_Emoji sequences.
+		for (const sequence of RGI_EMOJI_SEQUENCES) {
 			test(sequence);
 		}
 
@@ -131,18 +154,16 @@ const suite = (emojiRegex, emojiWithTextRegex, additionalTests = () => {}) => ()
 
 };
 
-describe('ES5', suite(regex, textRegex, (regex) => {
+describe('ES5', suite(regex, regexRgi, regexText, (regex) => {
 	it('contains no non-ASCII Unicode symbols', () => {
 		const regexSource = regex().source;
-
 		assert(/\\u\{/.test(regexSource) === false);
 	});
 }));
 
-describe('ES2015 Unicode', suite(regexES2015, textRegexES2015, (regex) => {
+describe('ES2015 Unicode', suite(regexES2015, regexRgiES2015, regexTextES2015, (regex) => {
 	it('contains no surrogate characters', () => {
 		const regexSource = regex().source;
-
 		assert(/\\uD[8-9a-fA-F]/g.test(regexSource) === false);
 	});
 }));

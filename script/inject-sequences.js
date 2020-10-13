@@ -13,11 +13,19 @@ console.log(emojiSequenceES5);
 const emojiSequenceES2015 = trie.toString('u');
 console.log(emojiSequenceES2015);
 
-for (const file of ['index.js', 'text.js', 'es2015/index.js', 'es2015/text.js']) {
-	const emojiSequence = file.startsWith('es2015/') ? emojiSequenceES2015 : emojiSequenceES5;
+const files = [
+	'index.js',
+	'RGI_Emoji.js',
+	'text.js',
+	'es2015/index.js',
+	'es2015/RGI_Emoji.js',
+	'es2015/text.js',
+];
+for (const file of files) {
+	const RGI_Emoji_pattern = file.startsWith('es2015/') ? emojiSequenceES2015 : emojiSequenceES5;
 
 	const input = fs.readFileSync(file, 'utf8');
-	const output = input.replace('<% emojiSequence %>', emojiSequence) +
+	const output = input.replace('<% RGI_Emoji %>', RGI_Emoji_pattern) +
 		(input.endsWith('\n') ? '' : '\n');
 
 	fs.writeFileSync(file, output);
