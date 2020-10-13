@@ -62,7 +62,9 @@ const emojiRegex = require('emoji-regex/es2015/index.js');
 const emojiRegexText = require('emoji-regex/es2015/text.js');
 ```
 
-## For contributors: how to update emoji-regex after new Unicode Standard releases
+## For maintainers
+
+### How to update emoji-regex after new Unicode Standard releases
 
 1. Update the Unicode data dependency in `package.json` by running the following commands:
 
@@ -99,8 +101,9 @@ const emojiRegexText = require('emoji-regex/es2015/text.js');
     ```sh
     git tag v0.1.2
     git push --tags
-    npm publish
     ```
+
+    Our CI then automatically publishes the new release to npm.
 
 ## Author
 
