@@ -86,9 +86,9 @@ const emojiRegexText = require('emoji-regex/es2015/text.js');
     npm test
     ```
 
-1. Send a pull request with the changes.
+1. Send a pull request with the changes, and get it reviewed & merged.
 
-1. In a separate pull request, bump the emoji-regex version number in `package.json`:
+1. On the `master` branch, bump the emoji-regex version number in `package.json`:
 
     ```sh
     npm version patch -m 'Release v%s'
@@ -96,11 +96,13 @@ const emojiRegexText = require('emoji-regex/es2015/text.js');
 
     Instead of `patch`, use `minor` or `major` [as needed](https://semver.org/).
 
-1. Once both pull requests are merged, tag the new release:
+    Note that this produces a Git commit + tag.
+
+1. Push the release commit and tag:
 
     ```sh
-    git tag v0.1.2
-    git push --tags
+    git push               # push the commit
+    git push origin v0.1.2 # push the tag
     ```
 
     Our CI then automatically publishes the new release to npm.
