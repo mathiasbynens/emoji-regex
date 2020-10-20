@@ -29,8 +29,10 @@
     "LICENSE-MIT.txt",
     "index.js",
     "index.d.ts",
+    "RGI_Emoji.js",
     "text.js",
     "es2015/index.js",
+    "es2015/RGI_Emoji.js",
     "es2015/text.js"
   ],
   "scripts": {

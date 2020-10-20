@@ -4,6 +4,12 @@ declare module 'emoji-regex' {
     export = emojiRegex;
 }
 
+declare module 'emoji-regex/RGI_Emoji' {
+    function emojiRegex(): RegExp;
+
+    export = emojiRegex;
+}
+
 declare module 'emoji-regex/text' {
     function emojiRegex(): RegExp;
 
@@ -11,6 +17,12 @@ declare module 'emoji-regex/text' {
 }
 
 declare module 'emoji-regex/es2015' {
+    function emojiRegex(): RegExp;
+
+    export = emojiRegex;
+}
+
+declare module 'emoji-regex/es2015/RGI_Emoji' {
     function emojiRegex(): RegExp;
 
     export = emojiRegex;
