@@ -53,6 +53,17 @@ const suite = (emojiRegex, emojiRgiRegex, emojiWithTextRegex, additionalTests = 
 
 		});
 
+		it(`doesn’t match incorrect sequences`, () => {
+			// Don’t match sequences ending with a text variation selector.
+			assert(emojiRgiRegex().test('\u2757'));
+			assert(!emojiRgiRegex().test('\u2757\uFE0E'));
+
+			// Don’t match lone regional indicators.
+			// U+1F1FE REGIONAL INDICATOR SYMBOL LETTER Y
+			assert(!emojiRgiRegex().test('\u{1F1FE}'));
+			assert(!emojiRgiRegex().test('\u{1F1FE}\u{1F1FE}'));
+		});
+
 		const test = (string) => {
 			it(`matches ${ string } as a single unit`, () => {
 				assert(emojiRegex().test(string));
