@@ -30,10 +30,10 @@
     "index.js",
     "index.d.ts",
     "RGI_Emoji.js",
+    "RGI_Emoji.d.ts",
     "text.js",
-    "es2015/index.js",
-    "es2015/RGI_Emoji.js",
-    "es2015/text.js"
+    "text.d.ts",
+    "es2015"
   ],
   "scripts": {
     "build": "rm -rf -- es2015; babel src -d .; NODE_ENV=es2015 babel src -d ./es2015; node script/inject-sequences.js",
