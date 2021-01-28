@@ -93,6 +93,9 @@ const suite = (emojiRegex, emojiRgiRegex, emojiWithTextRegex, additionalTests = 
 		// Test a ZWJ emoji sequence (`emoji-zwj-sequences.txt`).
 		test('\u{1F3CA}\u{1F3FD}\u200D\u2640\uFE0F');
 
+		// Test an Emoji 13.1 sequence.
+		test('\u{1F48F}\u{1F3FF}');
+
 		// Test all RGI_Emoji sequences.
 		for (const sequence of RGI_EMOJI_SEQUENCES) {
 			test(sequence);
