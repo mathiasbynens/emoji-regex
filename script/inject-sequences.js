@@ -16,6 +16,7 @@ console.log(emojiSequenceES2015);
 const files = [
 	'index.js',
 	'RGI_Emoji.js',
+	'RGI_Emoji-pattern.txt',
 	'text.js',
 	'es2015/index.js',
 	'es2015/RGI_Emoji.js',
