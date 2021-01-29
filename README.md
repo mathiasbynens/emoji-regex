@@ -108,7 +108,7 @@ const emojiRegexText = require('emoji-regex/es2015/text.js');
 
 1. Send a pull request with the changes, and get it reviewed & merged.
 
-1. On the `master` branch, bump the emoji-regex version number in `package.json`:
+1. On the `main` branch, bump the emoji-regex version number in `package.json`:
 
     ```sh
     npm version patch -m 'Release v%s'
