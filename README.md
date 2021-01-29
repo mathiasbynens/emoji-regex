@@ -121,8 +121,7 @@ const emojiRegexText = require('emoji-regex/es2015/text.js');
 1. Push the release commit and tag:
 
     ```sh
-    git push               # push the commit
-    git push origin v0.1.2 # push the tag
+    git push
     ```
 
     Our CI then automatically publishes the new release to npm.
