@@ -36,7 +36,7 @@
     "es2015/text.js"
   ],
   "scripts": {
-    "build": "rm -rf -- es2015; babel src -d .; NODE_ENV=es2015 babel src -d ./es2015; cp src/RGI_Emoji-pattern.txt .; node script/inject-sequences.js",
+    "build": "rm -rf -- es2015; babel src -d .; NODE_ENV=es2015 babel src -d ./es2015; node script/inject-sequences.js",
     "test": "mocha",
     "test:watch": "npm run test -- --watch"
   },
