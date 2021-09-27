@@ -1,4 +1,4 @@
-# emoji-regex [![Build status](https://github.com/mathiasbynens/emoji-regex/actions/workflows/main.yml/badge.svg)](https://github.com/mathiasbynens/emoji-regex/actions/workflows/main.yml)
+# emoji-regex [![Build status](https://github.com/mathiasbynens/emoji-regex/actions/workflows/main.yml/badge.svg)](https://github.com/mathiasbynens/emoji-regex/actions/workflows/main.yml) [![emoji-regex on npm](https://img.shields.io/npm/v/emoji-regex)](https://www.npmjs.com/package/emoji-regex)
 
 _emoji-regex_ offers a regular expression to match all emoji symbols and sequences (including textual representations of emoji) as per the Unicode Standard. It’s based on [_emoji-test-regex-pattern_](https://github.com/mathiasbynens/emoji-test-regex-pattern), which generates (at build time) the regular expression pattern based on the Unicode Standard. As a result, _emoji-regex_ can easily be updated whenever new emoji are added to Unicode.
 
