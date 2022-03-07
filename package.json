@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@unicode/unicode-14.0.0": "^1.2.1",
-    "emoji-test-regex-pattern": "^1.5.0",
+    "emoji-test-regex-pattern": "^1.7.2",
     "mocha": "^9.1.2"
   }
 }
