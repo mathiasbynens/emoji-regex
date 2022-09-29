@@ -29,7 +29,8 @@
   "files": [
     "LICENSE-MIT.txt",
     "index.js",
-    "index.d.ts"
+    "index.d.ts",
+    "index.mjs"
   ],
   "scripts": {
     "build": "node script/build.js",
