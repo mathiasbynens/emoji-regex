@@ -93,7 +93,7 @@ describe('regex', () => {
 		assert(/\\u\{/.test(regexSource) === false);
 	});
 
-	it('can be imported as an ecmascript module', async () => {
+	it('can be imported as a JavaScript module', async () => {
 		const { default: regex } = await import('../index.mjs');
 		assert(regex().test('\u{1F600}'));
 	});
