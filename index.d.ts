@@ -1,5 +1,3 @@
 declare module 'emoji-regex' {
-  function emojiRegex(): RegExp;
-
-  export = emojiRegex;
+  export default function emojiRegex(): RegExp;
 }
