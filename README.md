@@ -2,6 +2,8 @@
 
 _emoji-regex_ offers a regular expression to match all emoji symbols and sequences (including textual representations of emoji) as per the Unicode Standard. It’s based on [_emoji-test-regex-pattern_](https://github.com/mathiasbynens/emoji-test-regex-pattern), which generates (at build time) the regular expression pattern based on the Unicode Standard. As a result, _emoji-regex_ can easily be updated whenever new emoji are added to Unicode.
 
+Since each version of _emoji-regex_ is tied to the latest Unicode version at the time of release, results are deterministic. This is important for use cases like image replacement, where you want to guarantee that an image asset is available for every possibly matched emoji. If you don’t need a deterministic regex, a lighter-weight, general emoji pattern is available via the [_emoji-regex-xs_](https://github.com/slevithan/emoji-regex-xs) package that follows the same API.
+
 ## Installation
 
 Via [npm](https://www.npmjs.com/):
