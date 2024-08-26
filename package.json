@@ -38,8 +38,8 @@
     "test:watch": "npm run test -- --watch"
   },
   "devDependencies": {
-    "@unicode/unicode-15.1.0": "^1.5.2",
-    "emoji-test-regex-pattern": "^2.1.0",
-    "mocha": "^10.0.0"
+    "@unicode/unicode-16.0.0": "^1.0.0",
+    "emoji-test-regex-pattern": "^2.2.0",
+    "mocha": "^10.7.3"
   }
 }
