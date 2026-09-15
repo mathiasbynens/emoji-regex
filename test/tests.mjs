@@ -84,6 +84,12 @@ describe('regex', () => {
 	// Test an Emoji 13.1 sequence.
 	test('\u{1F48F}\u{1F3FF}');
 
+	// Test an Emoji 18 emoji.
+	test('\u{1F6D9}');
+
+	// Test an Emoji 18 sequence.
+	test('\u{1FAF9}\u{1F3FB}');
+
 	// Test all RGI_Emoji sequences.
 	for (const sequence of RGI_EMOJI_SEQUENCES) {
 		test(sequence);
