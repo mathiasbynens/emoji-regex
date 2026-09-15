@@ -1,17 +1,20 @@
-const assert = require('assert');
+import assert from 'node:assert';
+import { describe, it } from 'node:test';
 
-const regex = require('../index.js');
+import regex from '../index.mjs';
 
-const unicodeDataPackage = require('./unicode-data-package.js');
-const RGI_EMOJI_SEQUENCES = require('./get-sequences.js');
+import unicodeDataPackage from './unicode-data-package.mjs';
+import RGI_EMOJI_SEQUENCES from './get-sequences.mjs';
+
+const { default: Emoji_Modifier_Base } = await import(
+	`${unicodeDataPackage}/Binary_Property/Emoji_Modifier_Base/symbols.mjs`
+);
 
 describe('regex', () => {
-
 	// Start off with some hardcoded tests just to be safe. These are repeated by
 	// the scripted loop below.
-	it('matches expected code points', function() {
-
-		// U+1F198 SQUARED SOS
+	it('matches expected code points', () => {
+		// U+1F198 SQUARED SOS.
 		assert(regex().test('\u{1F198}'));
 
 		// U+1F1FE REGIONAL INDICATOR SYMBOL LETTER Y
@@ -20,7 +23,7 @@ describe('regex', () => {
 		assert(regex().test('\u{1F1FE}\u{1F1EA}'));
 		assert.deepStrictEqual(
 			'\u{1F1FE}\u{1F1EA}'.match(regex())[0],
-			'\u{1F1FE}\u{1F1EA}'
+			'\u{1F1FE}\u{1F1EA}',
 		);
 
 		// U+1F1FA REGIONAL INDICATOR SYMBOL LETTER U
@@ -29,7 +32,7 @@ describe('regex', () => {
 		assert(regex().test('\u{1F1FA}\u{1F1F8}'));
 		assert.deepStrictEqual(
 			'\u{1F1FA}\u{1F1F8}'.match(regex())[0],
-			'\u{1F1FA}\u{1F1F8}'
+			'\u{1F1FA}\u{1F1F8}',
 		);
 
 		// U+1F469 WOMAN
@@ -41,20 +44,18 @@ describe('regex', () => {
 		assert(regex().test('\u{1F469}\u{1F3FE}\u200D\u2708\uFE0F'));
 		assert.deepStrictEqual(
 			'\u{1F469}\u{1F3FE}\u200D\u2708\uFE0F'.match(regex())[0],
-			'\u{1F469}\u{1F3FE}\u200D\u2708\uFE0F'
+			'\u{1F469}\u{1F3FE}\u200D\u2708\uFE0F',
 		);
-
 	});
 
 	const test = (string) => {
-		it(`matches ${ string } as a single unit`, () => {
+		it(`matches ${string} as a single unit`, () => {
 			assert(regex().test(string));
 			assert.deepStrictEqual(string.match(regex())[0], string);
 		});
 	};
 
 	// Test `Emoji_Modifier_Base` symbols.
-	const Emoji_Modifier_Base = require(`${unicodeDataPackage}/Binary_Property/Emoji_Modifier_Base/symbols.js`);
 	for (const symbol of Emoji_Modifier_Base) {
 		test(symbol);
 	}
@@ -97,5 +98,4 @@ describe('regex', () => {
 		const { default: regex } = await import('../index.mjs');
 		assert(regex().test('\u{1F600}'));
 	});
-
 });

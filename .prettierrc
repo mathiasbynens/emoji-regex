@@ -1,0 +1,11 @@
+{
+	"arrowParens": "always",
+	"objectWrap": "preserve",
+	"semi": true,
+	"singleQuote": true,
+	"trailingComma": "all",
+	"printWidth": 80,
+	"requirePragma": false,
+	"tabWidth": 2,
+	"useTabs": true
+}

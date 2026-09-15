@@ -3,8 +3,7 @@
 	"version": "10.6.0",
 	"description": "A regular expression to match all Emoji-only symbols as per the Unicode Standard.",
 	"homepage": "https://mths.be/emoji-regex",
-	"main": "index.js",
-	"module": "index.mjs",
+	"main": "index.mjs",
 	"types": "index.d.ts",
 	"keywords": [
 		"unicode",
@@ -28,18 +27,18 @@
 	"bugs": "https://github.com/mathiasbynens/emoji-regex/issues",
 	"files": [
 		"LICENSE-MIT.txt",
-		"index.js",
 		"index.d.ts",
 		"index.mjs"
 	],
 	"scripts": {
-		"build": "node script/build.js",
-		"test": "mocha",
-		"test:watch": "npm run test -- --watch"
+		"build": "node script/build.mjs",
+		"test": "node --test test/tests.mjs",
+		"test:watch": "npm run test -- --watch",
+		"format": "prettier . --write"
 	},
 	"devDependencies": {
 		"@unicode/unicode-18.0.0": "^2.0.7",
 		"emoji-test-regex-pattern": "^2.6.0",
-		"mocha": "^11.7.2"
+		"prettier": "^3.9.6"
 	}
 }

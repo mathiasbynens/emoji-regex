@@ -15,7 +15,7 @@ npm install emoji-regex
 In [Node.js](https://nodejs.org/):
 
 ```js
-const emojiRegex = require('emoji-regex');
+import emojiRegex from 'emoji-regex';
 // Note: because the regular expression has the global flag set, this module
 // exports a function that returns the regex rather than exporting the regular
 // expression itself, to make it impossible to (accidentally) mutate the
@@ -30,8 +30,8 @@ const text = `
 
 const regex = emojiRegex();
 for (const match of text.matchAll(regex)) {
-  const emoji = match[0];
-  console.log(`Matched sequence ${ emoji } — code points: ${ [...emoji].length }`);
+	const emoji = match[0];
+	console.log(`Matched sequence ${emoji} — code points: ${[...emoji].length}`);
 }
 ```
 
@@ -58,49 +58,49 @@ Matched sequence 👩🏿 — code points: 2
 
 1. Update the Unicode data dependency in `package.json` by running the following commands:
 
-     ```sh
-     # Example: updating from Unicode v13 to Unicode v14.
-     npm uninstall @unicode/unicode-13.0.0
-     npm install @unicode/unicode-14.0.0 --save-dev
-     ````
+   ```sh
+   # Example: updating from Unicode v13 to Unicode v14.
+   npm uninstall @unicode/unicode-13.0.0
+   npm install @unicode/unicode-14.0.0 --save-dev
+   ```
 
- 1. Generate the new output:
+1. Generate the new output:
 
-     ```sh
-     npm run build
-     ```
+   ```sh
+   npm run build
+   ```
 
- 1. Verify that tests still pass:
+1. Verify that tests still pass:
 
-     ```sh
-     npm test
-     ```
+   ```sh
+   npm test
+   ```
 
 ### How to publish a new release
 
 1. On the `main` branch, bump the emoji-regex version number in `package.json`:
 
-    ```sh
-    npm version patch -m 'Release v%s'
-    ```
+   ```sh
+   npm version patch -m 'Release v%s'
+   ```
 
-    Instead of `patch`, use `minor` or `major` [as needed](https://semver.org/).
+   Instead of `patch`, use `minor` or `major` [as needed](https://semver.org/).
 
-    Note that this produces a Git commit + tag.
+   Note that this produces a Git commit + tag.
 
 1. Push the release commit and tag:
 
-    ```sh
-    git push && git push --tags
-    ```
+   ```sh
+   git push && git push --tags
+   ```
 
-    Our CI then automatically publishes the new release to npm.
+   Our CI then automatically publishes the new release to npm.
 
 ## Author
 
-| [![twitter/mathias](https://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](https://twitter.com/mathias "Follow @mathias on Twitter") |
-|---|
-| [Mathias Bynens](https://mathiasbynens.be/) |
+| [![twitter/mathias](https://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](https://twitter.com/mathias 'Follow @mathias on Twitter') |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Mathias Bynens](https://mathiasbynens.be/)                                                                                                       |
 
 ## License
 
